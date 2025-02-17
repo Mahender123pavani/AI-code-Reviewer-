@@ -1,97 +1,46 @@
-# GenAI-App---AI-Code-Reviewer  
-## 📌 Project Overview  
-AI Code Reviewer is a Python-based web application that analyzes Python code and provides AI-generated feedback on:  
-- *Bug detection*  
-- *Performance optimizations*  
-- *Code improvement suggestions*  
-- *Fixed code snippets*  
+GenAI App - AI Code Reviewer
+This is a Streamlit web application that uses Google Generative AI (Gemini-Pro) to review Python code, identify issues, and suggest improvements.
 
-The app is built using *Streamlit* for UI and *Google Gemini AI* for code analysis.  
+Features
+Accepts Python code input via a text area.
+Provides detailed code reviews with suggestions and corrected snippets.
+Displays warnings and error handling with retries for API requests.
+Prerequisites
+Python installed on your system.
+A valid Google Generative AI API Key.
+Installation
+Clone the repository:
 
-## 🛠 Tech Stack  
-- *Frontend & Backend:* Streamlit  
-- *AI Model:* Google Gemini AI  
-- *Programming Language:* Python  
+git clone https://github.com/yourusername/genai-code-reviewer.git
+cd genai-code-reviewer
+Install dependencies:
+Ensure you have pip installed, then run:
 
----
-
-## 📂 Project Structure  
-
-📁 AI-Code-Reviewer
-│── app.py                 # Main application file
-│── README.md               # Project documentation
-│── requirements.txt        # requirements 
-
-
----
-
-## ⚙ Installation & Setup  
-
-### 1️⃣ Clone the Repository  
-bash
-git clone https://github.com/your-username/AI-Code-Reviewer.git
-cd AI-Code-Reviewer
-
-
-### 2️⃣ Install Dependencies  
-bash
 pip install -r requirements.txt
+Set up secrets:
+Create a secrets.toml file in the .streamlit directory with your Google API key:
 
+GOOGLE_API_KEY = "your-api-key-here"
+Usage
+Run the application:
 
-### 3️⃣ Set Up Google AI API  
-1. Obtain an API key from *Google AI Console*.  
-2. Enable *Generative Language API*.  
-3. Add your API key in app.py.  
-
-### 4️⃣ Run the Application  
-bash
 streamlit run app.py
+Enter your Python code in the provided text area.
 
-This will launch the app in your browser at *http://localhost:8501/*.  
+Click "Review Code" to receive feedback on bugs and suggestions.
 
----
+Requirements
+The following packages are necessary to run the app:
 
-## 🚀 Features  
-- *User-friendly Interface* – Simple and intuitive UI using Streamlit.  
-- *AI-Powered Code Review* – Uses Google Gemini AI to analyze Python code.  
-- *Bug Detection & Fixes* – Identifies issues and suggests improvements.  
+streamlit
+google-generativeai
+(Dependencies are listed in requirements.txt)
 
----
-
-## 🖥 Usage Instructions  
-1. Enter Python code in the provided text box.  
-2. Click "Generate Review".  
-3. The AI will analyze the code and provide:  
-   - *Bug reports*  
-   - *Code efficiency improvements*  
-   - *Suggested fixes*  
-
----
-
-## 🛠 Troubleshooting  
-*API Key Not Valid Error*  
-- Ensure the API key is correctly set in app.py.  
-- Enable *Generative Language API* in Google Cloud Console.  
-
-*ModuleNotFoundError: No module named 'streamlit'*  
-- Run:  
-  bash
-  pip install streamlit
-  
-
-*Streamlit Not Launching?*  
-- Use the command:  
-  bash
-  streamlit run app.py
-  
-
----
-
-## 🤝 Contributing  
-Feel free to contribute by opening a *Pull Request* or reporting issues.  
-
----
-
-### ⭐ Star this repository if you found it useful!  
-
----
+File Structure
+📂 project-folder/
+   ├── app.py               # Main Streamlit application
+   ├── requirements.txt     # Python dependencies
+   
+Notes
+The app uses exponential backoff to handle API errors gracefully.
+API Key should be kept secure and not shared publicly.
